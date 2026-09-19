@@ -61,7 +61,10 @@ export function layout(meta: PageMeta, body: string): string {
 
   <header class="site-header">
     <div class="container header-inner">
-      <a class="logo" href="/">Fortress Roofing</a>
+      <a class="logo logo-mark" href="/">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M32 8L56 28.5V30H52V52H38V36H26V52H12V30H8V28.5L32 8Z"/><path fill="none" stroke="currentColor" stroke-opacity="0.35" stroke-width="2" d="M20 30h24"/></svg>
+        <span>Fortress Roofing</span>
+      </a>
       <nav class="nav-desktop" aria-label="Main">
         ${navLinks(NAV, path)}
       </nav>
