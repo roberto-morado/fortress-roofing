@@ -12,7 +12,7 @@ export function homePage(): string {
   <!-- Hero -->
   <section class="hero-navy">
     <div class="container">
-      <p class="eyebrow">Storm damage · Insurance advocacy · Honest work</p>
+      <p class="eyebrow">Storm damage · Claim guidance · Honest work</p>
       <h1>Your roof shouldn’t keep you up at night.</h1>
       <p class="lead">We help first—inspecting honestly and guiding the insurance claim—so when coverage applies, a sturdy new roof is practically within reach. You get a safe covering. We handle the paperwork maze with you.</p>
       <div class="cta-row">
@@ -20,6 +20,13 @@ export function homePage(): string {
         <a class="btn btn-ghost" href="/insurance">See how insurance works</a>
       </div>
       <p class="micro-trust">No pressure. Straight answers. [LICENSE NOTE] · Local to [SERVICE AREA]</p>
+
+      <ul class="trust-strip" aria-label="Trust">
+        <li>No pressure. Straight answers.</li>
+        <li>You own the policy. We guide the claim.</li>
+        <li>Licensed &amp; insured.</li>
+        <li>Local crews — we don’t vanish after the check.</li>
+      </ul>
     </div>
   </section>
 
@@ -125,17 +132,12 @@ export function homePage(): string {
     </div>
   </section>
 
-  <!-- Social proof -->
+  <!-- Social proof — real testimonials only; hide placeholders -->
   <section class="section">
-    <div class="container">
+    <div class="container max-w-3xl">
       <h2>Neighbors who slept easier after</h2>
-      <p class="form-note">Replace placeholders with real, permitted testimonials. Prefer claim-journey stories.</p>
-      <div class="grid-3 mt-4">
-        <blockquote class="quote card">“[PLACEHOLDER — first name + city]. They explained the claim without pressure and the roof held through the next storm.”</blockquote>
-        <blockquote class="quote card">“[PLACEHOLDER]. Straight about the deductible. No surprise fees.”</blockquote>
-        <blockquote class="quote card">“[PLACEHOLDER]. Treated our home like it mattered.”</blockquote>
-      </div>
-      <p class="mt-6 form-note">We regularly work with major carriers in [SERVICE AREA]. We don’t “beat” insurance—we help you use the coverage you already pay for.</p>
+      <p class="mb-0">Real homeowner stories will live here once we have permission to share them. Until then, we’ll earn trust the slow way: clear process, honest claims guidance, and work that holds.</p>
+      <p class="mt-4 mb-0 form-note">We regularly work with major carriers in [SERVICE AREA]. We don’t “beat” insurance—we help you use the coverage you already pay for.</p>
     </div>
   </section>
 
@@ -160,17 +162,13 @@ export function homePage(): string {
     </div>
   </section>
 
-  <!-- Gallery strip -->
+  <!-- Gallery strip — no fake photos -->
   <section class="section">
-    <div class="container">
+    <div class="container max-w-3xl">
       <h2>Work that holds up</h2>
       <p>Real homes. Real weather. Real finish.</p>
-      <div class="grid-3 mt-6">
-        <div class="gallery-ph">[PLACEHOLDER — project image]<br />Neighborhood · Replacement · Quiet outcome</div>
-        <div class="gallery-ph">[PLACEHOLDER — project image]<br />Neighborhood · Repair · Quiet outcome</div>
-        <div class="gallery-ph">[PLACEHOLDER — project image]<br />Neighborhood · Replacement · Quiet outcome</div>
-      </div>
-      <p class="mt-6"><a href="/gallery">View the gallery →</a></p>
+      <p class="mt-4 mb-0 form-note">Project photos coming soon.</p>
+      <p class="mt-4 mb-0"><a href="/gallery">Gallery →</a></p>
     </div>
   </section>
 
