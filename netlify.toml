@@ -1,12 +1,3 @@
 [build]
-  # Install Deno on Netlify's build image, then export static site to dist/
-  command = "curl -fsSL https://deno.land/install.sh | sh && export DENO_INSTALL=\"$HOME/.deno\" && export PATH=\"$DENO_INSTALL/bin:$PATH\" && deno task build"
+  command = "echo Using prebuilt dist"
   publish = "dist"
-
-[build.environment]
-  DENO_INSTALL = "/opt/buildhome/.deno"
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200

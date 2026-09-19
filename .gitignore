@@ -1,4 +1,2 @@
-dist/
 .DS_Store
-.env
-.env.*
+dist/.gitkeep
