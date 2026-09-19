@@ -1,3 +1,7 @@
-[build]
-  command = "echo Using prebuilt dist"
-  publish = "dist"
+# DEPRECATED — not the product path.
+# Fortress is Deno.serve SSR (main.ts). Deploy to Deno Deploy.
+# Do not use publish=dist as production.
+
+# [build]
+#   command = "echo Use Deno Deploy — see README"
+#   publish = "dist"
