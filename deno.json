@@ -1,8 +1,8 @@
 {
   "tasks": {
     "start": "deno run -A main.ts",
-    "build": "deno run -A scripts/build-static.ts",
-    "check": "deno check main.ts"
+    "check": "deno check main.ts",
+    "build:static-optional": "echo 'DEPRECATED: static export is not the product. Use deno task start and deploy to Deno Deploy. See README.md'"
   },
   "compilerOptions": {
     "strict": true,
