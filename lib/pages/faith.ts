@@ -1,5 +1,3 @@
-import { ctaBand } from "../layout.ts";
-
 export const faithMeta = {
   title: "Our faith | Fortress Roofing",
   description:
@@ -15,12 +13,11 @@ export const faithMeta = {
  * Do NOT invent LSB text. Do NOT publish KJV as the site default.
  */
 function scriptureBlock(ref: string, role: string): string {
+  // Citation + role only. Licensed LSB wording supplied later by Prophet — never invent verse body.
   return `
-  <!-- TODO(Prophet): supply licensed LSB text for ${ref}. Do not invent LSB wording. -->
   <figure class="scripture-placeholder">
     <p class="ref">${ref} (LSB)</p>
     <p class="todo">Theme: ${role}</p>
-    <p class="todo">[LSB text — Prophet to supply licensed wording before publish]</p>
   </figure>`;
 }
 
@@ -80,10 +77,23 @@ export function faithPage(): string {
     </div>
   </section>
 
+  <!-- Soft CTA immediately after inclusivity guardrail — help, not a closer -->
   <section class="section section-mist">
     <div class="container max-w-3xl">
+      <h2>If your roof needs care, we’re here</h2>
+      <p>Start with help—not a hard sell. A free claim review or a no-pressure inspection. We’ll look at the roof, talk straight about insurance when it applies, and leave the decision with you.</p>
+      <div class="cta-row">
+        <a class="btn btn-copper" href="/contact">Request a free claim review</a>
+        <a class="btn btn-outline-navy" href="/insurance">See how insurance works</a>
+      </div>
+      <p class="micro-trust mt-4 mb-0">You don’t need to talk faith to get a clear answer on your roof.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container max-w-3xl">
       <h2>Refuge, dwelling, and a house that stands</h2>
-      <p>A few passages shape how we think about covering, storm, and building. Citations confirmed in SCRIPTURE_ANCHORS.md (LSB). Licensed wording pending from Prophet.</p>
+      <p>A few passages shape how we think about covering, storm, and building. Citations confirmed in SCRIPTURE_ANCHORS.md (LSB). Licensed wording pending from Prophet—citation and theme role only for now.</p>
 
       <h3 class="mt-6">Dwelling under the Most High</h3>
       ${scriptureBlock("Psalm 91:1–2", "dwelling under the Most High; refuge and fortress")}
@@ -104,16 +114,6 @@ export function faithPage(): string {
       ${scriptureBlock("Psalm 91:3–4", "deliverance; covering; truth as shield")}
     </div>
   </section>
-
-  ${ctaBand({
-    title: "If your roof needs care, we’re here",
-    body:
-      "Start with help—not a hard sell. Request a free claim review or a no-pressure inspection. We’ll look at the roof, talk straight about insurance when it applies, and leave the decision with you.",
-    secondaryLabel: "See how insurance works",
-    secondaryHref: "/insurance",
-    reassurance:
-      "You don’t need to talk faith to get a clear answer on your roof. Serving [SERVICE AREA] · Hours [HOURS] · Call [PHONE]",
-  })}
 
   <section class="section-tight">
     <div class="container">
