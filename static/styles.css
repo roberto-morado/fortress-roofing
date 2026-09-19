@@ -1,15 +1,51 @@
-/* Fortress Roofing — design tokens (pure CSS, zero npm) */
+/* Fortress Roofing — design tokens (pure CSS, zero npm)
+   Source: Graphic Designer IMPLEMENTATION_ASSETS 2026-09-19 */
 :root {
-  --navy: #0B1F3A;
-  --stone: #F4F0E8;
-  --mist: #D7E3EE;
-  --charcoal: #1C1C1C;
-  --copper: #B87333;
-  --gold: #C4A574;
-  --radius: 10px;
-  --max: 72rem;
+  /* Palette (exact) */
+  --fortress-navy: #0B1F3A;
+  --warm-stone: #F4F0E8;
+  --sky-mist: #D7E3EE;
+  --anchor-charcoal: #1C1C1C;
+  --copper-crest: #B87333;
+  --quiet-gold: #C4A574;
+  --copper-crest-hover: #a3652c;
+  --white: #ffffff;
+
+  /* Short aliases (existing class hooks) */
+  --navy: var(--fortress-navy);
+  --stone: var(--warm-stone);
+  --mist: var(--sky-mist);
+  --charcoal: var(--anchor-charcoal);
+  --copper: var(--copper-crest);
+  --gold: var(--quiet-gold);
+
+  /* Surfaces / borders */
+  --surface-card: var(--white);
+  --border-soft: rgba(11, 31, 58, 0.08);
+  --border-mist: rgba(215, 227, 238, 0.2);
+  --scrim-navy: rgba(11, 31, 58, 0.72);
+
+  /* Type */
   --font-serif: "Fraunces", "Source Serif 4", Georgia, ui-serif, serif;
   --font-sans: "Inter", "Source Sans 3", system-ui, -apple-system, sans-serif;
+  --text-hero: clamp(2.25rem, 4.5vw, 3.75rem);   /* ~36–60px */
+  --text-h1: clamp(2rem, 3.5vw, 3rem);            /* page titles */
+  --text-h2: clamp(1.5rem, 2.5vw, 2rem);          /* ~24–32px */
+  --text-h3: 1.125rem;                           /* 18px */
+  --text-body: 1rem;                             /* 16px */
+  --text-lead: 1.125rem;                         /* 18px */
+  --text-small: 0.875rem;                        /* 14px */
+  --text-eyebrow: 0.8125rem;                     /* 13px */
+  --lh-tight: 1.2;
+  --lh-body: 1.6;
+  --tracking-eyebrow: 0.04em;
+
+  /* Layout */
+  --radius: 10px;
+  --radius-sm: 8px;
+  --max: 72rem;
+  --space-section: clamp(3rem, 6vw, 4.5rem);
+  --space-section-tight: 2.5rem;
 }
 
 *,
@@ -39,11 +75,17 @@ main {
 
 h1, h2, h3, h4 {
   font-family: var(--font-serif);
-  line-height: 1.2;
+  line-height: var(--lh-tight);
   color: var(--navy);
   font-weight: 600;
   margin: 0 0 0.75rem;
 }
+h1 { font-size: var(--text-h1); }
+h2 { font-size: var(--text-h2); }
+h3 { font-size: var(--text-h3); }
+body { font-size: var(--text-body); }
+.lead { font-size: var(--text-lead); line-height: var(--lh-body); }
+.text-small, .form-note, .page-note { font-size: var(--text-small); }
 
 p {
   margin: 0 0 1rem;
@@ -197,9 +239,9 @@ a:hover {
 
 /* Sections */
 .section {
-  padding: 3.5rem 0;
+  padding: var(--space-section) 0;
 }
-.section-tight { padding: 2.5rem 0; }
+.section-tight { padding: var(--space-section-tight) 0; }
 .section-mist { background: var(--mist); }
 .section-navy {
   background: var(--navy);
@@ -225,8 +267,35 @@ a:hover {
   color: var(--stone);
   padding: 4rem 0;
 }
-.hero-navy h1 { color: var(--stone); font-size: clamp(2rem, 4vw, 3.25rem); }
-.hero-navy .lead { color: var(--mist); font-size: 1.125rem; max-width: 40rem; }
+.hero-navy h1 { color: var(--stone); font-size: var(--text-hero); max-width: 18ch; }
+.hero-navy .lead { color: var(--mist); font-size: var(--text-lead); max-width: 40rem; }
+.hero-navy .eyebrow::after {
+  content: "";
+  display: block;
+  width: 2.5rem;
+  height: 2px;
+  margin-top: 0.75rem;
+  background: var(--quiet-gold);
+  opacity: 0.9;
+}
+/* Optional photo hero: wrap content in .hero-inner; set --hero-image on .hero-navy */
+.hero-navy.has-image {
+  background:
+    linear-gradient(90deg, var(--scrim-navy) 0%, rgba(11, 31, 58, 0.45) 55%, rgba(11, 31, 58, 0.2) 100%),
+    var(--hero-image, none) center / cover no-repeat;
+  padding: clamp(4rem, 10vw, 7rem) 0;
+}
+.logo-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+.logo-mark svg {
+  width: 1.65rem;
+  height: 1.65rem;
+  flex-shrink: 0;
+  color: var(--quiet-gold);
+}
 .micro-trust {
   margin-top: 1.25rem;
   font-size: 0.875rem;
@@ -472,4 +541,82 @@ ul.clean li::before {
   height: 0.45rem;
   border-radius: 50%;
   background: var(--copper);
+}
+
+/* —— Contact + gallery polish (SSR pages) —— */
+.contact-grid {
+  display: grid;
+  gap: 2rem;
+}
+@media (min-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1.4fr 1fr;
+    align-items: start;
+  }
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  font-size: var(--text-small, 0.875rem);
+  font-weight: 500;
+  color: var(--navy);
+}
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  font: inherit;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--border-soft, rgba(11, 31, 58, 0.15));
+  border-radius: var(--radius-sm, 8px);
+  background: var(--white, #fff);
+  color: var(--charcoal);
+}
+.contact-form label.checkbox {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-weight: 400;
+}
+.contact-form .optional {
+  font-weight: 400;
+  opacity: 0.7;
+}
+.form-note,
+.page-note {
+  font-size: var(--text-small, 0.875rem);
+  color: color-mix(in srgb, var(--charcoal) 75%, transparent);
+}
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+}
+.chip {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: var(--white, #fff);
+  border: 1px solid var(--border-soft, rgba(11, 31, 58, 0.12));
+  font-size: var(--text-small, 0.875rem);
+  color: var(--navy);
+}
+.gallery-card .gallery-ph {
+  display: flex;
+  align-items: flex-end;
+  min-height: 10rem;
+  margin: -0.25rem -0.25rem 0.75rem;
+  padding: 0.75rem;
+  border-radius: calc(var(--radius, 10px) - 2px);
+  background:
+    linear-gradient(160deg, var(--navy) 0%, color-mix(in srgb, var(--navy) 70%, var(--copper)) 100%);
+  color: var(--stone, #F4F0E8);
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
 }
