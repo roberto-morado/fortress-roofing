@@ -1,0 +1,13 @@
+/* Fortress Roofing -- design tokens (pure CSS, zero npm) */
+:root {
+  --navy: #0B1F3A;
+  --stone: #F4F0E8;
+  --mist: #D7E3EE;
+  --charcoal: #1C1C1C;
+  --copper: #B87333;
+  --gold: #C4A574;
+  --radius: 10px;
+  --max: 72rem;
+  --font-serif: "Fraunces", "Source Serif 4", Georgia, ui-serif, serif;
+  --font-sans: "Inter", "Source Sans 3", system-ui, -apple-system, sans-serif;
+}
