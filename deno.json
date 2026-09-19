@@ -1,9 +1,11 @@
 {
   "tasks": {
-    "dev": "deno run -A --watch scripts/dev.ts",
-    "build": "deno run -A scripts/build.ts"
+    "start": "deno run -A main.ts",
+    "build": "deno run -A scripts/build-static.ts",
+    "check": "deno check main.ts"
   },
   "compilerOptions": {
-    "lib": ["deno.window", "dom"]
+    "strict": true,
+    "lib": ["deno.window"]
   }
 }
