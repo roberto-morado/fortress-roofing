@@ -61,6 +61,7 @@ async function serveStatic(pathname: string): Promise<Response | null> {
   }
   try {
     const fileUrl = new URL(rel, STATIC_ROOT);
+    // Ensure resolved path stays under static/
     if (!fileUrl.href.startsWith(STATIC_ROOT.href)) {
       return new Response("Forbidden", { status: 403 });
     }
